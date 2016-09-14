@@ -1,0 +1,185 @@
+
+
+/* Header and Navigation */
+.nav{
+    position:relative;
+    margin:auto;
+    font-size:20px;
+    padding:2px;
+
+    font-family:Arial;
+    font-weight:bold; 
+    display:inline-block;
+    border-radius:7px;
+    border: 1px solid darkgray;
+    background-color: #AFCCFF;
+    bottom:0px;
+    text-align:center;
+    width:100px;
+    height: 40px;
+
+}
+
+header{
+    position:relative;
+    display:block;
+    background-color:#E0EAFF;
+    border:2px solid darkgray;
+    text-align:center;
+    width:100%;
+    height:150px;
+    clear:both;
+    border-radius:3px;
+}
+
+#title{
+    margin:auto;
+    font-weight:bold;
+    font-family:sans;
+    font-size:4em;
+    display:inline-block;
+    padding-left:2em;
+
+
+}
+
+#creator{
+    display:inline-block;
+    border:1px solid #000756;
+    border-radius:50%;
+    width:100px;
+    height:100px;
+    margin-top:5px;
+    margin-right:50px;
+    float:right;
+}
+
+#creator > img{
+    height:100px;
+    width:100px;
+    border-radius:50%;
+    overflow:hidden;
+}
+.nav a {
+    position: relative;
+    top:5px;
+    display: inline-block;
+    text-decoration:none; 
+}
+
+nav ul{
+    margin:auto;
+    display:inline;
+    width:100%;
+}
+#quote{
+    display:inline;
+    position:absolute;
+    font-size:1em;
+    top:110px;
+    right:10px
+}
+
+.right{
+    display:block;
+    text-align:right;
+}
+
+#positionSearchBar{
+    display:inline-block;
+    margin:auto;
+
+
+}
+
+#searchButton{
+    width:50px;
+    height:45px;
+
+}
+
+#positionPurchase{
+    display:inline-block;
+    position:relative;
+    width:100px;
+    height:45px;
+    top:5px;
+    float:right;
+
+}
+
+#purchase{
+
+    width:100px;
+    height:45px;
+    background-color:#37BC25;
+
+}
+
+.searchBar{
+    position:relative;
+    margin:auto;
+    font-size:16px;
+    display:inline-block;
+    border-radius:3px;
+    top:5px;
+    width:400px;
+    height: 45px;
+
+}
+
+
+/* Main Section and Products */
+
+main{
+    position:relative;
+    display: block;
+    margin:auto;
+}
+
+.products{
+    position:relative;
+    display:table;
+    margin:auto;
+
+}
+
+.item{
+    display:inline-block;
+    text-align: center;
+}
+
+.item a{
+    display:inline;
+}
+
+a img{
+    width:250px;
+    margin-left:40px;
+    margin-right:40px;
+    margin-top: 40px;
+    border-radius:2px;
+}
+
+.productInfo{
+
+    position:relative;
+    display:inline-block;
+    text-align: center;
+    margin:auto;
+
+}
+
+.productInfo h4, p{
+    position:relative;
+    display:block;
+    text-align: center;
+    margin:auto;
+
+
+}
+
+h6,h5{
+    margin:auto;
+
+}
