@@ -7,14 +7,14 @@ main{
     margin:auto;
 }
 
-.flex{    
+.text{    
     position:relative;
-    display:flex;
+
     flex-flow: row;
 }
 
 
-.flex img{
+.text img{
     float:right;
     width:300px;
     height:300px;
