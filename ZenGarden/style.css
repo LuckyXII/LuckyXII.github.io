@@ -1,194 +1,379 @@
-/* css Zen Garden default style v1.02 */
-/* css released under Creative Commons License - http://creativecommons.org/licenses/by-nc-sa/1.0/  */
+/* GLOBAL SCOPE*/
 
-/* This file based on 'Tranquille' by Dave Shea */
-/* You may use this file as a foundation for any new work, but you may find it easier to start from scratch. */
-/* Not all elements are defined in this file, so you'll most likely want to refer to the xhtml as well. */
-
-/* Your images should be linked as if the CSS file sits in the same folder as the images. ie. no paths. */
-
-
-/* basic elements */
-html {
-	margin: 0;
-	padding: 0;
-	}
-body { 
-	font: 75% georgia, sans-serif;
-	line-height: 1.88889;
-	color: #555753; 
-	background: #fff url(http://csszengarden.com/001/blossoms.jpg) nso-repeat bottom right; 
-	margin: 0; 
-	padding: 0;
-	}
-p { 
-	margin-top: 0; 
-	text-align: justify;
-	}
-h3 { 
-	font: italic normal 1.4em georgia, sans-serif;
-	letter-spacing: 1px; 
-	margin-bottom: 0; 
-	color: #7D775C;
-	}
-a:link { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: #B7A5DF;
-	}
-a:visited { 
-	font-weight: bold; 
-	text-decoration: none; 
-	color: #D4CDDC;
-	}
-a:hover, a:focus, a:active { 
-	text-decoration: underline; 
-	color: #9685BA;
-	}
-abbr {
-	border-bottom: none;
-	}
-
-
-/* specific divs */
-.page-wrapper { 
-	background: url(http://csszengarden.com/001/zen-bg.jpg) no-repeat top left; 
-	padding: 0 175px 0 110px;  
-	margin: 0; 
-	position: relative;
-	}
-
-.intro { 
-	min-width: 470px;
-	width: 100%;
-	}
-
-header h1 { 
-	background: transparent url(http://csszengarden.com/001/h1.gif) no-repeat top left;
-	margin-top: 10px;
-	display: block;
-	width: 219px;
-	height: 87px;
-	float: left;
-
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-header h2 { 
-	background: transparent url(http://csszengarden.com/001/h2.gif) no-repeat top left; 
-	margin-top: 58px; 
-	margin-bottom: 40px; 
-	width: 200px; 
-	height: 18px; 
-	float: right;
-
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-header {
-	padding-top: 20px;
-	height: 87px;
+a{
+    text-decoration: none;
+    color:cadetblue;
 }
 
-.summary {
-	clear: both; 
-	margin: 20px 20px 20px 10px; 
-	width: 160px; 
-	float: left;
-	}
-.summary p {
-	font: italic 1.1em/2.2 georgia; 
-	text-align: center;
-	}
+.page-wrapper{
+    margin:50px;
+}
 
-.preamble {
-	clear: right; 
-	padding: 0px 10px 0 10px;
-	}
-.supporting {	
-	padding-left: 10px; 
-	margin-bottom: 40px;
-	}
+h1, h2, h3, p{
+    display:block;
+    margin:20px;
+    text-align: center;
+    position:relative;
+}
 
-footer { 
-	text-align: center; 
-	}
-footer a:link, footer a:visited { 
-	margin-right: 20px; 
-	}
+/* END Global */
 
-.sidebar {
-	margin-left: 600px; 
-	position: absolute; 
-	top: 0; 
-	right: 0;
-	}
-.sidebar .wrapper { 
-	font: 10px verdana, sans-serif; 
-	background: transparent url(http://csszengarden.com/001/paper-bg.jpg) top left repeat-y; 
-	padding: 10px; 
-	margin-top: 150px; 
-	width: 130px; 
-	}
-.sidebar h3.select { 
-	background: transparent url(http://csszengarden.com/001/h3.gif) no-repeat top left; 
-	margin: 10px 0 5px 0; 
-	width: 97px; 
-	height: 16px; 
+/* INTRO SECTION */
 
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-.sidebar h3.archives { 
-	background: transparent url(http://csszengarden.com/001/h5.gif) no-repeat top left; 
-	margin: 25px 0 5px 0; 
-	width:57px; 
-	height: 14px; 
+#zen-intro{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-.sidebar h3.resources { 
-	background: transparent url(http://csszengarden.com/001/h6.gif) no-repeat top left; 
-	margin: 25px 0 5px 0; 
-	width:63px; 
-	height: 10px; 
+#zen-intro h1, #zen-intro h2,#zen-intro h3,#zen-intro p{
+    display:block;
+    margin:20px;
+    text-align: center;
+    position:relative;
+    top:260px;
+}
 
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-	}
+#zen-intro div, #zen-intro header{
+    margin-bottom: 20px;
+}
 
+header{
+    display:inline-block;
+    flex: 1 1 60%;
+    border:4px solid brown;
+    position:relative;
+    background-image: url(pictures/pexels-photo-135526.jpeg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    height:600px;
+}
 
-.sidebar ul {
-	margin: 0;
-	padding: 0;
-	}
-.sidebar li {
-	line-height: 1.3em; 
-	background: transparent url(http://csszengarden.com/001/cr1.gif) no-repeat top center; 
-	display: block; 
-	padding-top: 5px; 
-	margin-bottom: 5px;
-	list-style-type: none;
-	}
-.sidebar li a:link {
-	color: #988F5E;
-	}
-.sidebar li a:visited {
-	color: #B3AE94;
-	}
+header > h1,h2{
+    -ms-transform: rotate(1deg); /* IE 9 */
+    -webkit-transform: rotate(1deg); /* Chrome, Safari, Opera */
+    transform: rotate(1deg);
+    font-family: 'Poiret One', cursive;
+    font-size: 35px;
+    color:beige;
+
+}
+
+#zen-summary{
+    position:relative;
+    display:inline-block;
+    flex: 1 1 35%;
+    text-align: center;
+    font-family: 'Lobster', Cursive;
+    font-size: 25px;
+   
+}
+
+#zen-summary p::before, p::after{
+    content: '"';
+}
 
 
-.extra1 {
-	background: transparent url(http://csszengarden.com/001/cr2.gif) top left no-repeat; 
-	position: absolute; 
-	top: 40px; 
-	right: 0; 
-	width: 148px; 
-	height: 110px;
-	}
+
+#zen-preamble{
+    flex:1 1 33%;
+    display:block;
+    background-image: url(pictures/pexels-photo-112811.jpeg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+    height:900px;
+    margin-left: 40%;
+}
+
+#zen-preamble h3,#zen-preamble p{
+    top:250px;
+    margin: 20px 80px 20px 80px;
+    font-family: 'Poiret One', cursive;
+    font-size: 1.4em;
+    font-weight: bold;
+    
+    text-shadow:
+    -1px -1px 0 #FFF,
+    1px -1px 0 #FFF,
+    -1px 1px 0 #FFF,
+    1px 1px 0 #FFF; 
+}
+
+/* END Zen-intro section */
+
+/* ZEN supporting Div */
+
+#zen-supporting{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#zen-supporting > div{
+    position:relative;
+    background-repeat: no-repeat;
+    background-size:cover;
+    margin-bottom: 20px;
+}
+
+#zen-explanation{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1 1 60%;
+    align-content: flex-start;
+    
+    background-image: url(pictures/pexels-photo-60230.jpeg);
+    background-position: center;
+    height:600px; 
+}
+
+#zen-explanation > h3{
+    flex: 1 1 100%;
+    height:50px;
+}
+
+#zen-explanation > p{
+    flex: 1 1 30%;
+    padding:10px;
+    background-color: RGBA(200, 200, 210, 0.6);
+    border-radius: 3px;
+    font-family: 'Trirong', serif;
+    font-size: 20px;
+    color:white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+    
+}
+
+#zen-participation{
+    display:inline-block;
+    flex: 1 1 35%;
+    font-family: 'Trirong', serif;
+    font-size: 16px;
+}
+
+#zen-participation > p{
+    margin:10px;
+}
+
+
+#zen-benefits{
+    flex:1 1 33%;
+    display:block;
+    background-image: url(pictures/hand-notes-holding-things.jpg);
+    background-position: center;
+    height:600px;
+    margin-left: 40%;
+}
+
+#zen-benefits > p, #zen-benefits > h3{
+    position:relative;
+    display:block;
+    top:160px;
+    width:24%;
+    margin-left: 24%;
+    -ms-transform: rotate(3deg); /* IE 9 */
+    -webkit-transform: rotate(3deg); /* Chrome, Safari, Opera */
+    transform: rotate(3deg);
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#zen-requirements{
+    flex:1 1 100%;
+    display:block;
+    background-image: url(pictures/pexels-photo-27665.jpg);
+    background-position: center;
+    text-align: center;
+    height:800px;
+    
+    font-family: 'Poiret One', cursive;
+    font-size: 1.5em;
+    color:floralwhite;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+#zen-requirements p:nth-child(2){
+    margin:20px 2% 20px 15%;
+}
+
+#zen-requirements p:nth-child(3){
+    margin:20px 2% 20px 18%;
+}
+
+#zen-requirements p:nth-child(4){
+    margin:20px 2% 20px 18%;
+}
+
+#zen-requirements p:nth-child(5){
+    margin:20px 2% 20px 10%;
+}
+
+
+footer{
+    flex: 1 1 100%;
+    display:block;
+    position:relative;
+    height:20px;
+    text-align: center;
+    background-color: #F6F6F6;
+    
+}
+
+/* END supportive */
+
+
+/* ASIDE */
+.wrapper{
+    display:flex;
+    flex-direction: row;
+    background-color: #F6F6F6;
+}
+
+.wrapper h3{
+    text-align: left;
+}
+
+#design-selection{
+    flex:1 1 33%;
+}
+
+#design-archives{
+    flex: 1 1 33%;
+}
+
+#zen-resources{
+    flex:1 1 33%;
+}
+/* END Aside */
+
+/* @MEDIA */
+
+/* Allign Text Inside picture textbook */
+@media (max-width:1455px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:26%;
+        margin-left: 22%;
+    }
+    
+    
+
+@media (max-width:1350px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:28%;
+        margin-left: 20%;
+    }
+}
+    
+    
+@media (max-width:1255px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:30%;
+        margin-left: 18%;
+    }
+}
+
+@media (max-width:1180px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:32%;
+        margin-left: 16%;
+    }
+}
+    
+@media (max-width:1115px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:34%;
+        margin-left: 14%;
+    }
+}
+
+@media (max-width:1055px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:36%;
+        margin-left: 12%;
+    }
+}
+    
+@media (max-width:1005px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:38%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width:950px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:40%;
+        margin-left: 8%;
+    }
+}
+    
+@media (max-width:900px){
+    #zen-benefits > p, #zen-benefits > h3{
+        width:44%;
+        margin-left: 5%;
+    }
+}
+
+/* END allign text in picture textbook */
+
+    
+/* allign requirements text */
+    
+@media (max-width:1300px){
+   
+    #zen-requirements p:nth-child(2){
+    margin:10px 2% 10px 10%;
+    }
+
+    #zen-requirements p:nth-child(3){
+        margin:10px 2% 10px 13%;
+    }
+
+    #zen-requirements p:nth-child(4){
+        margin:10px 2% 10px 10%;
+    }
+
+    #zen-requirements p:nth-child(5){
+        margin:10px 2% 10px 6%;
+    }
+}
+
+
+@media (max-width:1070px){
+    
+    #zen-requirements p:nth-child(2){
+    margin:10px 2% 10px 2%;
+    }
+
+    #zen-requirements p:nth-child(3){
+        margin:10px 2% 10px 2%;
+    }
+
+    #zen-requirements p:nth-child(4){
+        margin:10px 2% 10px 2%;
+    }
+
+    #zen-requirements p:nth-child(5){
+        margin:10px 2% 10px 2%;
+    }
+    
+    #zen-requirements{
+        font-size:1.45em;
+    }
+}
+
+/* END allign requirements text */
