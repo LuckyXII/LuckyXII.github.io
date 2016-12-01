@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <title>Övning2.3</title>
+            <meta charset="utf-8">
+            
+            <!-- CSS Styles -->
+            <style>
+                
+                img{
+                    border: 2px solid #101030;
+                    height:auto;
+                    width:auto;
+                    max-height:300px;
+                    max-width:400px;
+                    
+                }
+                
+                tbody{
+                    background-color:black;
+                    
+                }
+                
+                th{
+                    font-size: 2em; 
+                }
+                
+                .alignImg{
+                    display:block;
+                    margin-left:17%;
+                }
+                .alignImg2{ /* försökte med margain(left&right):auto; men den hoppade alltid åt höger så gjorde en extra class för jag var för lat att göra 2 nya ID's */
+                    display:block;
+                    margin-left:25%;
+                }
+                
+                .brightColumn{
+                    background-color: #303030;
+                }
+                
+                .borderColor{
+                    border: 2px solid #00D0FF;
+
+                }
+                
+                caption{
+                    font-family:fantasy,sans-serif;
+                    font-size: 3em;
+                    font-weight:bold;
+                }
+                
+               
+                
+                
+                
+            
+            </style>
+        </head>
+        
+        <!-- HTML code -->
+        <body>
+            
+            <!-- Table -->
+            <table>
+                <caption>My Featured Photos</caption>
+                <thead>
+                    <tr>
+                        <th colspan="2">Diving</th>
+                        <th colspan="2">Australia</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <!-- Column 1 -->
+                    <tr>
+                        <td><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14264096_10207474877814534_5165832354406867740_n.jpg?oh=e05202a7470e13eabbe61759fd9c3292&oe=5847FB5C" alt="Cyprus underwater"></a></td>
+                        <td class="alignImg2"><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14264949_10207465518980569_6054281995152175764_n.jpg?oh=2f3e41656f0389955808a0e2d1c21178&oe=5881DCDD" alt="cyprus underwater"></a></td>
+                        <td class ="brightColumn"><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14225444_10207474877894536_6645810242133761859_n.jpg?oh=5ad81bc2a5e6fb1728b7470e6706ed7d&oe=58739292" alt="Australia Byron Bay"></a></td>
+                        <td class ="brightColumn"><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/10959491_10203911969544054_1390254236823910667_n.jpg?oh=9174cf1605030a32968aec83d67c51eb&oe=5880C36F" alt="Australia Port Lincoln"></a></td>
+                    </tr>
+
+                    <!-- column 2 -->
+                    <tr>
+                        
+                        <td class="brightColumn"><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14203324_10207465511500382_1398699219666014289_n.jpg?oh=d0f56e4c993a76e777bf0574ce7154f7&oe=58457C55" alt="Cyprus underwater"></a></td>
+                        <td class ="brightColumn" ><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14184294_10207441550581374_292236955829957172_n.jpg?oh=eae539b8900fe1f97dabdf8435d65025&oe=583BFEE2" alt="underwater rings"></a></td>
+                        <td class="alignImg"><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14292534_10207474877934537_4856400311357346651_n.jpg?oh=e8f99c22b5e3e9349e2cebc14b49be8a&oe=587ADB40" alt="Australia Great Ocean Road"></a></td>
+                        <td class="borderColor"><a href="https://www.facebook.com/Omnipotent4Life"><img src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.0-9/14203299_10207474877974538_2431056868990678778_n.jpg?oh=ea58874ec29cd510c2185d135a3bbd7c&oe=58497E9A" alt="Australia Blue Mountains"></a></td>
+                       
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </body>
+    </html>
