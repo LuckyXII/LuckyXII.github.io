@@ -2,7 +2,6 @@
 /*jslint browser:true */
 
 //lab2 code start
-{
 
 //================================================================================
 //Constructors
@@ -214,7 +213,7 @@ Triangle.prototype = Object.create(Shape.prototype);
 Rectangle.prototype = Object.create(Shape.prototype);
 Polygon.prototype = Object.create(Shape.prototype);
 
-}
+
 //lab2 code end
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 //lab4 code
@@ -232,6 +231,7 @@ let cancel = document.getElementById("cancelBtn");
 let clear = document.getElementById("clearBtn");
 let expJSON = document.getElementById("expJS");
 let impJSON = document.getElementById("impJS");
+document.getElementById("instruct").appendChild(document.createTextNode(""));
 
 //Canvas
 var canvas = document.getElementById("myCanvas");
@@ -259,6 +259,7 @@ polygon.isSelected = false;
 cancel.cancel = false;
 
 
+document.getElementById("instruct").textContent = "Welcome!\nOpen Style Menu and start drawing!";
 
 //show and hide style menu
 styleMenu.addEventListener("click", ()=> {
@@ -266,13 +267,17 @@ styleMenu.addEventListener("click", ()=> {
     if(styleMenu.style.display == "none"){
         styleMenu.style.display = "block";
         document.getElementById("showStyleMenu").value="Hide Style Menu";
+        
+        
     }
     else if(styleMenu.style.display == "block"){
         styleMenu.style.display = "none";
         document.getElementById("showStyleMenu").value="Show Style Menu";
+        document.getElementById("instruct").textContent = "";
     }
     else{
         styleMenu.style.display = "block";
+        document.getElementById("instruct").textContent = "";
     }
 });
 
@@ -356,6 +361,7 @@ addColor.addEventListener("click", ()=> {
     let pickedColors = document.getElementById("presetColors");
     let option = document.createElement("option");
     let customColor = document.createTextNode(newColor.value);
+    let addColor = document.getElementById("addColor");
     option.appendChild(customColor);
     pickedColors.appendChild(option);
     
@@ -365,6 +371,7 @@ addColor.addEventListener("click", ()=> {
     pickedColors.lastChild.value = newColor.value;
     pickedColors.lastChild.style.color = newColor.value;
     newColor.value="";
+    addColor.disabled = true;
     pickedColors.lastChild.style.fontWeight ="bold";
 });
 
@@ -377,10 +384,8 @@ function selectElement(element){
         if(element.isSelected === false){
             cancel.cancel = true;
         }
-        
         //make true if shape is pressed
         element.isSelected = true;
-        
         //unselect other shapes
         for(let i = 0; i < elementList.length; i++){
             if(elementList[i] !== element){
@@ -396,14 +401,14 @@ function selectElement(element){
 
 //print coordinates in log
 canvas.addEventListener("mouseover", ()=> {
-     document.getElementById("coords").appendChild(document.createTextNode(""));
+    
     document.getElementById("status").appendChild(document.createTextNode(""));
     canvas.addEventListener("mousemove", (event)=> {
        
         let rect = event.target.getBoundingClientRect();
         let x = event.clientX - rect.left;
         let y = event.clientY - rect.top;
-        let printPos = "x: " + x + " y: " + y;
+        let printPos = "x: " + Math.floor(x) + " y: " + Math.floor(y);
         document.getElementById("status").textContent = printPos;
         
         var check;
@@ -412,10 +417,10 @@ canvas.addEventListener("mouseover", ()=> {
         }catch(e){}
                
         if(clicked === 0 && check){
-            document.getElementById("coords").textContent = "Select a startpoint or change shape to draw";
+            document.getElementById("instruct").textContent = "Select a startpoint or change shape to draw";
         }
         else if(clicked === 1){
-            document.getElementById("coords").textContent = "Add next point";
+            document.getElementById("instruct").textContent = "Add next point";
         }
       
     });
