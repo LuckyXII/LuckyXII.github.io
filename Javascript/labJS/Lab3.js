@@ -248,6 +248,7 @@ var coordinates = [];
 var clicked = 0;
 var elementList = [rectangle,circle,triangle,polygon];
 var JSONshapes = { "shapes": [] };
+var pickedColor = "";
 
 
 //properties
@@ -308,7 +309,7 @@ presetColors.addEventListener("change", ()=> {
     let colors = document.getElementById("presetColors");
     for(let i = 0; i < colors.childElementCount*2; i++){
         if(colors.childNodes[i].selected === true){
-            context.strokeStyle = colors.childNodes[i].value;
+            pickedColor = colors.childNodes[i].value;
         }  
     }
 });
@@ -405,7 +406,12 @@ canvas.addEventListener("mouseover", ()=> {
         let printPos = "x: " + x + " y: " + y;
         document.getElementById("status").textContent = printPos;
         
-        if(clicked === 0 && elementList.find((shape)=>{return shape.isSelected === true;}).isSelected){
+        var check;
+        try{
+            check = elementList.find((shape)=>{return shape.isSelected === true;}).isSelected;
+        }catch(e){}
+               
+        if(clicked === 0 && check){
             document.getElementById("coords").textContent = "Select a startpoint or change shape to draw";
         }
         else if(clicked === 1){
@@ -443,10 +449,10 @@ canvas.addEventListener("mouseout", ()=> {
             if(rectangle.isSelected && clicked === 2){
                 
                 myRectangle = new Rectangle(coordinates[0].x,coordinates[0].y,coordinates[1].x,coordinates[1].y);
-                myRectangle.lineColor = context.strokeStyle;
+                
                 
                 //store JSON
-                JSONshapes.shapes.push({"shape":"Rectangle","lineColor":myRectangle.lineColor,
+                JSONshapes.shapes.push({"shape":"Rectangle","lineColor":pickedColor,
                                  "startX": coordinates[0].x,"startY": coordinates[0].y,
                                  "x1":myRectangle.points()[1].x,"y1":myRectangle.points()[1].y,
                                  "x2":myRectangle.points()[2].x,"y2":myRectangle.points()[2].y,
@@ -460,14 +466,12 @@ canvas.addEventListener("mouseout", ()=> {
             else if(circle.isSelected && clicked === 2){
                 myCircle = new Circle(coordinates[0].x, coordinates[0].y,
                               Math.sqrt(Math.pow(coordinates[1].x-coordinates[0].x,2)+Math.pow(coordinates[1].y-coordinates[0].y,2))); 
-                myCircle.lineColor = context.strokeStyle;
+               
                
                 //store JSON
-                JSONshapes.shapes.push({"shape":"Circle","lineColor":myCircle.lineColor,
+                JSONshapes.shapes.push({"shape":"Circle","lineColor":pickedColor,
                                  "centerX":myCircle.centerX,"centerY":myCircle.centerY, "radius":myCircle.radius,
                                  "startAngle":0, "endAngle":360 });
-                
-                 
                 clicked = 0;
                 coordinates = [];
             }
@@ -476,7 +480,7 @@ canvas.addEventListener("mouseout", ()=> {
                 myTriangle.lineColor = context.strokeStyle;
                 
                 //store JSON
-                JSONshapes.shapes.push({"shape":"Triangle","lineColor":myTriangle.lineColor,
+                JSONshapes.shapes.push({"shape":"Triangle","lineColor":pickedColor,
                                  "startX": coordinates[0].x,"startY": coordinates[0].y,
                                  "x1":myTriangle.points()[1].x,"y1":myTriangle.points()[1].y,
                                  "x2":myTriangle.points()[2].x,"y2":myTriangle.points()[2].y});
@@ -501,12 +505,16 @@ canvas.addEventListener("mouseout", ()=> {
 });
 
 
-//Ghostlines
+//Ghostlines draw lines and clear canvas
 canvas.addEventListener("mouseover", ()=> {
     canvas.addEventListener("mousemove", ()=> {
      "use strict";
 
         if(clicked >= 1){
+            
+            if(pickedColor === ""){
+                pickedColor = "#000";
+            }
 
             let rect = event.target.getBoundingClientRect();
             let x = event.clientX - rect.left;
@@ -519,6 +527,7 @@ canvas.addEventListener("mouseover", ()=> {
             
             if(rectangle.isSelected){
                 context.clearRect(0,0,500,500);
+                context.strokeStyle = pickedColor;
                 context.lineTo(x1,y);
                 context.lineTo(x,y);
                 context.lineTo(x,y1);
@@ -552,6 +561,7 @@ canvas.addEventListener("mouseover", ()=> {
     });
 });
 
+//redraw shapes
 function reDraw(){
     
     for(let i = 0; i < JSONshapes.shapes.length; i++){
@@ -601,6 +611,7 @@ cancel.addEventListener("click", ()=> {
 //clear Canvas
 clear.addEventListener("click", ()=> {
     context.clearRect(0,0,500,500);
+    JSONshapes.shapes = [];
     clicked = 0;
     coordinates = [];
 });
