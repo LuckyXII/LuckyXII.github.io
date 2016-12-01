@@ -537,11 +537,13 @@ canvas.addEventListener("mouseover", ()=> {
             
             else if(circle.isSelected){
                 context.clearRect(0,0,500,500);
+                context.strokeStyle = pickedColor;
                 context.arc(x1,y1,Math.sqrt(Math.pow(x-x1,2)+Math.pow(y-y1,2)),0,360);     
                 context.stroke();  
             }
             else if(triangle.isSelected){
                 context.clearRect(0,0,500,500);
+                context.strokeStyle = pickedColor;
                 context.lineTo(x,y);
                 
                 if(clicked === 2){
