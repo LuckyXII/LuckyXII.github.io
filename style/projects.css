@@ -1,7 +1,31 @@
+*{
+    user-select: none;
+}
+
 html,body{
     padding: 0;
     margin:0;
     height: 100%;
+}
+
+.button{
+    position: absolute;
+    z-index: 12;
+    left: 0;
+    margin: 10px;
+    border-radius:5px;
+    background-color: #ffa051;
+    padding: 5px;
+    color: white;
+    font-family: 'Julius Sans One', sans-serif;
+    cursor: pointer;
+    border: 1px solid #cb8c37;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
+}
+
+.button:active{
+    transform: scale(1.05);
+    color: white;
 }
 
 #flexContainer{
@@ -64,10 +88,16 @@ h2{
     font-family: 'Julius Sans One', sans-serif;
 }
 
+.title:active{
+    transform: translateY(1px);
+    font-size: 1.3em;
+}
+
 .cover{
     width: 30vw;
     height: auto;
     margin: auto;
+    border-radius: 5px;
 }
 
 .description{
@@ -79,14 +109,17 @@ h2{
     font-family: serif;
 }
 
-
 a{
     text-decoration: none;
     font-style: italic;
     color: black;
 }
 
-#parallax{
+a:active{
+    color: #898989;
+}
+
+#background{
     position: fixed;
     height: 100%;
     background-image: url("/LuckyXII.github.io/rescources/river-690374.jpg");
