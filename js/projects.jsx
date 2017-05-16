@@ -62,7 +62,7 @@ let app = document.getElementById("App");
 
 const musicSearch={
     title: "MusicSearch",
-    img: "/portfolioProto//rescources/musicSearchCover.png",
+    img: "/LuckyXII.github.io/rescources/musicSearchCover.png",
     description:"Second group project also working with the Software Tester class, " +
     "the idea was to use a lot of React and combine with API's and Firebase",
     important: "Some API's are using Http and needs to load unauthenticated scripts to work.",
@@ -70,14 +70,14 @@ const musicSearch={
 };
 const firebaseChat={
     title: "Firebase Chat",
-    img: "/portfolioProto//rescources/firebaseChatCover.png",
+    img: "/LuckyXII.github.io/rescources/firebaseChatCover.png",
     description:"Solo project to practise using NoSQL databases like Firebase",
     href: "https://luckyxii.github.io/JS2Uppg2Chat/"
 };
 
 const bookAPI={
     title: "Book API",
-    img: "/portfolioProto//rescources/bookAPICover.png",
+    img: "/LuckyXII.github.io/rescources/bookAPICover.png",
     description:"solo project for using API's\n",
     important:"click the key to fetch a new API key before you start using it",
     href: "https://luckyxii.github.io/JS2Uppg1BokAPI/"
@@ -85,7 +85,7 @@ const bookAPI={
 
 const westDate={
     title: "WestDate",
-    img: "/portfolioProto//rescources/westDateProjectCover.png",
+    img: "/LuckyXII.github.io/rescources/westDateProjectCover.png",
     description:"Our first group project.The idea was to practise API's, Scrum, time planing and teamwork.\n",
     important: "This site has no real database. To test it efficiently:\n1:in the console print: localAddTestUsersToDatabase()." +
     "\n2: register a new user or add generated ones by adding username admin and follow instructions.\n3:" +
