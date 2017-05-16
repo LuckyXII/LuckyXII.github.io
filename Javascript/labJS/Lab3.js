@@ -216,21 +216,23 @@ Polygon.prototype = Object.create(Shape.prototype);
 
 //lab2 code end
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-//lab4 code
+//lab3 code
 
 //get elements
-let styleMenu = document.getElementById("showStyleMenu");
-let colorPicker = document.getElementById("colorPicker");
-let newColor = document.getElementById("newColor");
-let addColor = document.getElementById("addColor");
+var styleMenu = document.getElementById("showStyleMenu");
+var colorPicker = document.getElementById("colorPicker");
+var pickedColors = document.getElementById("presetColors");
+var newColor = document.getElementById("newColor");
+var addColor = document.getElementById("addColor");
 var rectangle = document.getElementById("rectShape");
 var circle = document.getElementById("circleShape");
 var triangle = document.getElementById("triShape");
 var polygon = document.getElementById("polyShape");
-let cancel = document.getElementById("cancelBtn");
-let clear = document.getElementById("clearBtn");
-let expJSON = document.getElementById("expJS");
-let impJSON = document.getElementById("impJS");
+var cancel = document.getElementById("cancelBtn");
+var clear = document.getElementById("clearBtn");
+var textArea = document.getElementById("JSON");
+var expJSON = document.getElementById("expJS");
+var impJSON = document.getElementById("impJS");
 document.getElementById("instruct").appendChild(document.createTextNode(""));
 
 //Canvas
@@ -266,9 +268,7 @@ styleMenu.addEventListener("click", ()=> {
     let styleMenu = document.getElementById("styleMenu");
     if(styleMenu.style.display == "none"){
         styleMenu.style.display = "block";
-        document.getElementById("showStyleMenu").value="Hide Style Menu";
-        
-        
+        document.getElementById("showStyleMenu").value="Hide Style Menu";  
     }
     else if(styleMenu.style.display == "block"){
         styleMenu.style.display = "none";
@@ -311,57 +311,56 @@ function instructions(element, message){
 //pick color
 let presetColors = document.getElementById("colorPicker");
 presetColors.addEventListener("change", ()=> {
-    let colors = document.getElementById("presetColors");
-    for(let i = 0; i < colors.childElementCount*2; i++){
-        if(colors.childNodes[i].selected === true){
-            pickedColor = colors.childNodes[i].value;
+    //let colors = document.getElementById("presetColors");
+    for(let i = 0; i < pickedColors.childElementCount*2; i++){
+        if(pickedColors.childNodes[i].selected === true){
+            pickedColor = pickedColors.childNodes[i].value;
         }  
     }
 });
 
 
 //check for valid input otherwise disable addBtn
-newColor.addEventListener("keypress", ()=> {
-    newColor.addEventListener("keyup", ()=> {
-         "use strict";
-        let newColor = document.getElementById("newColor");
-        let addColor = document.getElementById("addColor");
+newColor.addEventListener("keyup", ()=> { 
+     "use strict";
+    //let newColor = document.getElementById("newColor");
+    //let addColor = document.getElementById("addColor");
 
-           if(newColor.value[0] != "#" || (newColor.value.length !== 4 && 
-                newColor.value.length !== 7) ){
-                addColor.disabled = true;
-                newColor.style.background = "#FFF";
-                addColor.value ="Invalid Color";
-                addColor.style.cursor = "not-allowed";
-            }else{
-                for(let i = 1; i <= newColor.value.length; i++){
-                    if(isNaN(newColor.value[i])){
-                        if(newColor.value[i].toUpperCase() < "A" || newColor.value[i].toUpperCase() < "F"){
-                            addColor.disabled = true;
-                            newColor.style.background = "#FFF";
-                            addColor.value ="Invalid Color";
-                            addColor.style.cursor = "not-allowed";
-                            break;
-                        }
-                    }else{
-                        addColor.style.cursor = "pointer";
-                        addColor.value ="Add Color";
-                        addColor.disabled = false;
-                        newColor.style.background = newColor.value;
-                    }
+    if(newColor.value[0] != "#" || (newColor.value.length !== 4 && 
+        newColor.value.length !== 7) ){
+        addColor.disabled = true;
+        newColor.style.background = "#FFF";
+        addColor.value ="Invalid Color";
+        addColor.style.cursor = "not-allowed";
+     }else{
+        for(let i = 1; i <= newColor.value.length-1; i++){
+            if(isNaN(newColor.value[i])){
+                if(newColor.value[i].toUpperCase() < "A" || newColor.value[i].toUpperCase() < "F"){
+                    addColor.disabled = true;
+                    newColor.style.background = "#FFF";
+                    addColor.value ="Invalid Color";
+                    addColor.style.cursor = "not-allowed";
+                    break;
                 }
             }
-    });
+            else{
+                addColor.style.cursor = "pointer";
+                addColor.value ="Add Color";
+                addColor.disabled = false;
+                newColor.style.background = newColor.value;
+            }
+        }
+    }
 });
-    
+
 //add new color to selector
 addColor.addEventListener("click", ()=> {
      "use strict";
-    let newColor = document.getElementById("newColor");
-    let pickedColors = document.getElementById("presetColors");
+    //let newColor = document.getElementById("newColor");
+    //let pickedColors = document.getElementById("presetColors");
     let option = document.createElement("option");
     let customColor = document.createTextNode(newColor.value);
-    let addColor = document.getElementById("addColor");
+    //let addColor = document.getElementById("addColor");
     option.appendChild(customColor);
     pickedColors.appendChild(option);
     
@@ -378,22 +377,28 @@ addColor.addEventListener("click", ()=> {
 
 //if selected flag and empty coords
 function selectElement(element){
-    element.addEventListener("click", (coordinates)=> {
+    element.addEventListener("click", ()=> {
         
-        //cancel drawing if new shaped is pressed
-        if(element.isSelected === false){
-            cancel.cancel = true;
+        //cancel drawing polygon
+        if(element.isSelected === true && element.defaultValue === "Polygon"){
+    
+            myPolygon = new Polygon(coordinates);
+             //store JSON
+            JSONshapes.shapes.push({"shape":"Polygon","lineColor":pickedColor,"points":coordinates});
+        }else{
+            //make true if shape is pressed
+            element.isSelected = true;
+            //unselect other shapes
+            for(let i = 0; i < elementList.length; i++){
+                if(elementList[i] !== element){
+                    elementList[i].isSelected = false;
+                } 
+            }
         }
-        //make true if shape is pressed
-        element.isSelected = true;
-        //unselect other shapes
-        for(let i = 0; i < elementList.length; i++){
-            if(elementList[i] !== element){
-                elementList[i].isSelected = false;
-            } 
-        }
+        
         //empty coords
         coordinates = [];
+        clicked = 0;
         
     });
 }
@@ -482,7 +487,7 @@ canvas.addEventListener("mouseout", ()=> {
             }
             else if(triangle.isSelected && clicked === 3){
                 myTriangle = new Triangle(coordinates[0].x, coordinates[0].y,coordinates[1].x,                                  coordinates[1].y,coordinates[2].x,coordinates[2].y);
-                myTriangle.lineColor = context.strokeStyle;
+                
                 
                 //store JSON
                 JSONshapes.shapes.push({"shape":"Triangle","lineColor":pickedColor,
@@ -494,14 +499,11 @@ canvas.addEventListener("mouseout", ()=> {
                 coordinates = [];
                 
             }
-            else if(polygon.isSelected && cancel.cancel === true){
-                myPolygon = new Polygon(coordinates);
-                myPolygon.lineColor = context.strokeStyle;
-                
-                
-                clicked = 0;
-                coordinates = [];
-            }
+            /*else if(polygon.isSelected){
+                context.strokeStyle = pickedColor;
+                context.lineTo(coordinates[clicked-1].x,coordinates[clicked-1].y);
+                context.stroke();
+            }*/
         }
     }catch(exception){
         console.log(exception);
@@ -510,7 +512,7 @@ canvas.addEventListener("mouseout", ()=> {
 });
 
 
-//Ghostlines draw lines and clear canvas
+//Ghostlines: draw lines and clear canvas
 canvas.addEventListener("mouseover", ()=> {
     canvas.addEventListener("mousemove", ()=> {
      "use strict";
@@ -561,7 +563,8 @@ canvas.addEventListener("mouseover", ()=> {
 
             }
             else if(polygon.isSelected){
-
+                context.clearRect(0,0,500,500);
+                context.strokeStyle = pickedColor;
             }
    
         }
@@ -570,6 +573,8 @@ canvas.addEventListener("mouseover", ()=> {
 
 //redraw shapes
 function reDraw(){
+    
+    
     
     for(let i = 0; i < JSONshapes.shapes.length; i++){
 
@@ -602,8 +607,20 @@ function reDraw(){
             context.closePath();
             context.stroke();
         }
+        else if(JSONshapes.shapes[i].shape === "Polygon"){
+            context.beginPath();
+            context.strokeStyle = JSONshapes.shapes[i].lineColor;
+            
+            for(let j = 0; j < JSONshapes.shapes[i].points.length; j++){
+                context.lineTo(JSONshapes.shapes[i].points[j].x,JSONshapes.shapes[i].points[j].y);
+                
+            }
+            
+            context.closePath();
+            context.stroke();
+        }
+       
     }
-    
 }
 
 
@@ -621,16 +638,16 @@ clear.addEventListener("click", ()=> {
     JSONshapes.shapes = [];
     clicked = 0;
     coordinates = [];
+    textArea.textContent = "";
 });
 
 //export JSON
 expJSON.addEventListener("click", ()=> {
     
-    let textarea = document.getElementById("JSON");
     let string = JSON.stringify(JSONshapes.shapes);
     let JSONtext = document.createTextNode(string);
     if(JSONtext.length > 5){
-        textarea.appendChild(JSONtext);
+        textArea.appendChild(JSONtext);
         JSONshapes.shapes = "";
     }
 });
@@ -676,21 +693,11 @@ let refresh = setInterval(()=>{
            
             
         
-    }catch(exception){console.log("No shape selected");}
+    }catch(exception){console.log(exception);}
 
    
 },30);
 
-
-
-    
-
-
-
-/*
-let polPoints = [{x:4,y:10},{x:7,y:12},{x:11,y:13},{x:10,y:10},{x:9,y:8},{x:7,y:7}];
-var myPolygon = new Polygon(polPoints);
-*/
 
 
 

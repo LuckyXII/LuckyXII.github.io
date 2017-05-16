@@ -64,7 +64,7 @@ function createMovieObject(title, year, genre) {
                     "\nGenre: " + this.genre+
                     "\nAverage Rating: " + this.averageRating);
         } 
-	}
+	};
 	return movieTitle;
 }
 
@@ -111,7 +111,7 @@ function rateMovie(movie,rate) {
     "use strict";
     validateObject(movie);
     
-    if(rate > 5 && rating < 0){
+    if(rate > 5 && rate < 0){
         alert("ratings can only be 1-5");
     }
   
@@ -142,7 +142,7 @@ function getBestMovie(database) {
     let bestMovie = {};
     for(let i = 0; i < database.length; i++){
        
-        validateObject(database[i])
+        validateObject(database[i]);
         avgRating(database[i]);    
         if(database[i].averageRating > bestAverage){
             bestAverage = database[i].averageRating;
@@ -164,7 +164,7 @@ function getWorstMovie(database) {
     for(let i = 0; i < database.length; i++){
         
         validateObject(database[i]);
-        avgRating(database[i]);;
+        avgRating(database[i]);
         
         if(database[i].ratings.length !== 0){
             if(database[i].averageRating < worstAverage){

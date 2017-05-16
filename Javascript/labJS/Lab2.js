@@ -308,7 +308,7 @@ console.log("test poly: ",myPolygon.boundingBox());
 console.log("is poly rect: ", myPolygon.boundingBox() instanceof Rectangle);
 
 //print position
-console.log("Points: ",myCircle.points()[0].y);
+console.log("Points: ",myRectangle.points());
 console.log("PolyPoints: ",myPolygon.points());
 
 

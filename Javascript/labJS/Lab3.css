@@ -4,6 +4,7 @@ main{
 }
 
 #myCanvas{
+    width:500px; height:500px;
     display:inline-block;
     position:relative;
     background-color: #EEE;

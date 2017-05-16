@@ -64,16 +64,16 @@ const countryStatistics = [
 //Universal functions and variables
 
 function continentCountries(countryStatistics,continentName){
-    return countryStatistics.filter((x) =>{return x.continent === continentName});
+    return countryStatistics.filter((x) =>{return x.continent === continentName;});
 }
 
 function populationContinent(countries){
-    return countries.reduce((x,y) => {return x += y.population},0);
+    return countries.reduce((x,y) => {return x += y.population;},0);
 }
 
 function leastPopulation(continent){
     
-    let smallestPopulation = continent.reduce((x,y) => { return x < y.population ? x : y.population},Infinity);
+    let smallestPopulation = continent.reduce((x,y) => { return x < y.population ? x : y.population;},Infinity);
 
     function small(x){
         if(x.population === smallestPopulation){
@@ -152,7 +152,7 @@ console.log("Average african population is: ",populationAfrica/africanCountries.
 // uppg 6:
 
 //compare continents
-mostInhabitedContinent = world.reduce((x,y) => {return populationContinent(x) > populationContinent(y) ? x : y;});
+let mostInhabitedContinent = world.reduce((x,y) => {return populationContinent(x) > populationContinent(y) ? x : y;});
 
 //most populated continent
 console.log("Continent with the most inhabitants is: ",mostInhabitedContinent[0].continent);
@@ -161,7 +161,7 @@ console.log("Continent with the most inhabitants is: ",mostInhabitedContinent[0]
 //uppg 7:
 
 //Filter countries with more than 50m population
-let bigCountries = countryStatistics.filter((country)=>{return country.population > 50000000});
+let bigCountries = countryStatistics.filter((country)=>{return country.population > 50000000;});
 
 bigCountries.forEach(country => console.log("Countries with a population above 50m: ",country.name));
 
@@ -193,7 +193,7 @@ var amountOfBigCountries = countriesWith50Mil.reduce((x,y)=>{return x > y.length
 //check if one or more continents have the most big countries
 let continentsWithBigCountries = countriesWith50Mil.filter((continent)=>{return continent.length === amountOfBigCountries;});
 
-continentsWithBigCountries.forEach((continent)=>{console.log("Continent with the most countries above 50m: ",continent[0].continent)});
+continentsWithBigCountries.forEach((continent)=>{console.log("Continent with the most countries above 50m: ",continent[0].continent);});
 
 
 //======================================================
@@ -204,7 +204,7 @@ var populationPerContinent = [];
 var indexCountry=0;
 world.forEach((continent)=>{
     if(continent.length !== 0){
-        populationPerContinent.push(continent.reduce((x,y) => {return x += y.population;},0))
+        populationPerContinent.push(continent.reduce((x,y) => {return x += y.population;},0));
     }});
 
 //find least population
