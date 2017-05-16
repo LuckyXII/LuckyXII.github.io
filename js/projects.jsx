@@ -35,7 +35,8 @@ class Project extends React.Component{
                 <a href={info.href} target="_blank"><img className="cover" src={info.img} alt="cover"/></a>
                 <p className="description">{info.description}</p>
                 <p className="note"><strong>IMPORTANT:</strong> {info.important}</p>
-                <h4>For more info and further instructions please check out <a href="/aboutProjects.html">"Behind the scenes"</a></h4>
+                <h4>For more info and further instructions please check out
+                    <a href="/aboutProjects.html">"Behind the scenes"</a>.</h4>
             </div>
         );
     }
@@ -46,11 +47,10 @@ class Footer extends React.Component{
     render(){
         return(
             <section className="footer">
-                <h2><span>You have reached the End.</span><br/>
-
-                    But don't worry there is more to come, however if you really want<br/>
+                <h2>You have reached the End.<br/>
+                <span>But don't worry there is more to come, however if you really want<br/>
                     to see more you can find all exercises no matter how small on my
-                    <a href="https://github.com/LuckyXII" target="_blank">Github</a>.
+                    <a href="https://github.com/LuckyXII" target="_blank"> Github</a>.</span>
                 </h2>
             </section>
         );

@@ -8,6 +8,14 @@ html,body{
     height: 100%;
 }
 
+.arrow{
+    position: absolute;
+    z-index: 15;
+    left:0;
+    margin: 10px;
+    color: #ffb457;
+}
+/*
 .button{
     position: absolute;
     z-index: 12;
@@ -21,7 +29,7 @@ html,body{
     cursor: pointer;
     border: 1px solid #cb8c37;
     box-shadow: 5px 5px 10px rgba(0,0,0,0.4);
-}
+}*/
 
 .button:active{
     transform: scale(1.05);
@@ -50,8 +58,7 @@ html,body{
     border-left: 1px solid rgba(100,100,100, 0.4);
     border-right: 1px solid rgba(100,100,100, 0.4);
     background-color: rgba(245,245,245, 0.4);
-    padding: 100px;
-    padding-top: 50px;
+    padding: 50px;
     box-shadow:  0 0 35px rgba(0,0,0,0.8);
 }
 
@@ -60,25 +67,29 @@ h2{
     text-align: center;
     flex-basis: 100%;
     background-color: #cb6c2a;
-    background: linear-gradient(to bottom, #f7ab60 31%, #f0983e 48%, #cb6c2a 100%);
+    background: linear-gradient(to bottom, rgba(226,154,92,0.8) 31%,
+                                            rgba(214,132,56,0.8) 48%,
+                                            rgba(166,83,41,0.8) 100%);
     margin: 0;
     padding: 30px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.4);
     color: white;
     text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-    font-family: 'Caveat', cursive;
+        -0.5px -0.5px 0 rgba(0,0,0,0.6),
+        0.5px -0.5px 0 rgba(0,0,0,0.6),
+        -0.5px 0.5px 0 rgba(0,0,0,0.6),
+        0.5px 0.5px 0 rgba(0,0,0,0.6);
+    font-family: 'Handlee', cursive;
 
 }
 
 .wrapper{
     border: 1px solid #EEE;
     background-color: rgba(250,250,250,0.8);
-    width: 30vw;
+    width: 40vw;
     margin: 60px;
+    margin: auto;
+    margin-bottom: 140px;
     padding: 20px;
     border-radius: 3px;
     z-index: 10;
@@ -94,7 +105,7 @@ h2{
 }
 
 .cover{
-    width: 30vw;
+    width: 40vw;
     height: auto;
     margin: auto;
     border-radius: 5px;
@@ -106,7 +117,7 @@ h2{
 }
 
 .note{
-    font-family: serif;
+    font-family: sans-serif;
 }
 
 a{
@@ -135,22 +146,32 @@ a:active{
     background: none;
     border-radius: 5px;
     text-align: center;
-    font-family: 'Caveat', cursive;
     background-color: rgba(200,200,200,0.7);
     margin: 0;
-    color: white;
+    color: #ff9d22;
     text-shadow:
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
+            -0.5px -0.5px 0 rgba(0,0,0,0.6),
+            0.5px -0.5px 0 rgba(0,0,0,0.6),
+            -0.5px 0.5px 0 rgba(0,0,0,0.6),
+            0.5px 0.5px 0 rgba(0,0,0,0.6);
+    font-family: 'Handlee', cursive;
 }
 
-.footer a, .footer span{
-    color: #ff9d22;
+.footer span{
+    color:white;
+    font-size:0.86em;
     text-shadow:
         -0.5px -0.5px 0 #303030,
         0.5px -0.5px 0 #303030,
         -0.5px 0.5px 0 #303030,
         0.5px 0.5px 0 #303030;
+}
+
+section .footer a{
+    color: #ff9d22;
+    text-shadow:
+            -0.5px -0.5px 0 #303030,
+            0.5px -0.5px 0 #303030,
+            -0.5px 0.5px 0 #303030,
+            0.5px 0.5px 0 #303030;
 }
