@@ -8,6 +8,20 @@ html,body{
     height: 100%;
 }
 
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    width: 4px;
+    background-color: rgb(64, 64, 65);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: rgb(255, 150, 43);
+    border-radius: 5px;
+}
+
 .arrow{
     position: absolute;
     z-index: 15;
